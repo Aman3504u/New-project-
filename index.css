@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3D Love Website - Cosmic Romance Design System */
+
+@layer base {
+  :root {
+    /* Cosmic Love Colors */
+    --cosmic-dark: 220 25% 8%;
+    --cosmic-deep: 270 35% 15%;
+    --cosmic-space: 280 40% 10%;
+    
+    /* Neon Love Colors */
+    --neon-pink: 330 100% 70%;
+    --neon-purple: 280 100% 80%;
+    --neon-cyan: 180 100% 60%;
+    
+    /* Heart Colors */
+    --heart-red: 0 85% 60%;
+    --heart-glow: 0 100% 75%;
+    
+    /* Text Glow */
+    --text-shadow-pink: 0 0 10px hsl(330 100% 70%), 0 0 20px hsl(330 100% 70%), 0 0 30px hsl(330 100% 70%);
+    --text-shadow-purple: 0 0 10px hsl(280 100% 80%), 0 0 20px hsl(280 100% 80%), 0 0 30px hsl(280 100% 80%);
+    
+    /* Standard tokens */
+    --background: var(--cosmic-dark);
+    --foreground: 0 0% 95%;
+    --primary: var(--neon-pink);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--neon-purple);
+    --secondary-foreground: 0 0% 100%;
+    --accent: var(--neon-cyan);
+    --accent-foreground: 0 0% 100%;
+    
+    --radius: 1rem;
+  }
+}
+
+/* 3D Love Animations */
+@layer components {
+  .cosmic-bg {
+    background: 
+      radial-gradient(circle at 20% 80%, hsl(var(--cosmic-deep)) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(280 60% 20%) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(330 50% 25%) 0%, transparent 50%),
+      hsl(var(--cosmic-dark));
+  }
+  
+  .neon-text {
+    color: hsl(var(--neon-pink));
+    text-shadow: var(--text-shadow-pink);
+    font-weight: bold;
+  }
+  
+  .neon-purple-text {
+    color: hsl(var(--neon-purple));
+    text-shadow: var(--text-shadow-purple);
+    font-weight: bold;
+  }
+  
+  .heart-glow {
+    color: hsl(var(--heart-red));
+    text-shadow: 0 0 10px hsl(var(--heart-glow)), 0 0 20px hsl(var(--heart-glow));
+  }
+  
+  .floating-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .pulse-animation {
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
